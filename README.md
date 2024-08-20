@@ -9,7 +9,7 @@ Technologies Used: **Liquid/HTML/CSS**
 Project Files: **main-collection-product-grid.liquid**, **card-variant.liquid**
 
 Implementation Steps:
-Locate the Code:
+1. Locate the Code:
 
 Open the **main-collection-product-grid.liquid** file.
 Find the line that contains:
@@ -111,5 +111,31 @@ Replace it with the following code to handle variant-specific display logic:
   {% endunless %}
 {% endfor %}
 {%- endif -%}
+```
+2. Create a Duplicate of the **product-card-1.liquid** File:
+
+Rename: The new file as **hc-card-variant.liquid**.
+
+Replace Code Snippets:
+
+product: product with product: card_product
+variant_id and selected_variant.id with card_variant.id
+product.first_available_variant.id or product.selected_or_first_available_variant.id with card_product.first_available_variant.id and card_product.selected_or_first_available_variant.id
+preview_image with card_variant.featured_media
+second_image with card_product.media[1]
+product.url with card_variant.url
+product.tags with card_product.tags
+product.has_only_default_variant with card_product.has_only_default_variant
+product.id with card_product.id
+product.metafields.global['minimog_countdown'] with card_product.metafields.global['minimog_countdown']
+product.vendor with card_product.vendor
+product.url and product.description with card_product.url and card_product.description
+{{ product.title }} with {{ card_product.title }} - {{ variant_option }}
+Remove:
+
+```liquid
+{% if product.has_only_default_variant == false and show_variant_options %}
+  {% render 'product-card-option', product: product, show_variant_options: show_variant_options, pcard_alignment: pcard_alignment %}
+{% endif %}
 ```
 This documentation provides a clear and structured explanation for implementing the separate variant display set up in the **Minimog - OS 2.0 version 4.0.0** Shopify store theme. If any further details or clarifications are needed, feel free to reach out!
