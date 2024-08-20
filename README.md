@@ -118,6 +118,7 @@ Rename: The new file as **hc-card-variant.liquid**.
 
 Replace Code Snippets:
 
+```liquid
 product: product with product: card_product
 variant_id and selected_variant.id with card_variant.id
 product.first_available_variant.id or product.selected_or_first_available_variant.id with card_product.first_available_variant.id and card_product.selected_or_first_available_variant.id
@@ -131,6 +132,7 @@ product.metafields.global['minimog_countdown'] with card_product.metafields.glob
 product.vendor with card_product.vendor
 product.url and product.description with card_product.url and card_product.description
 {{ product.title }} with {{ card_product.title }} - {{ variant_option }}
+```
 Remove:
 
 ```liquid
