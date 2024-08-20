@@ -2,15 +2,16 @@
 
 Purpose
 The purpose of this project is to set up a separate display for product variants on the Shopify store
-Store Theme: Minimog - OS 2.0 version 4.0.0
+Store Theme: **Minimog - OS 2.0 version 4.0.0**
 
-Technologies Used: Liquid/HTML/CSS
+Technologies Used: **Liquid/HTML/CSS**
 
-Project Files: main-collection-product-grid.liquid, card-variant.liquid
+Project Files: **main-collection-product-grid.liquid**, **card-variant.liquid**
+
 Implementation Steps:
 Locate the Code:
 
-Open the main-collection-product-grid.liquid file.
+Open the **main-collection-product-grid.liquid** file.
 Find the line that contains:
 ```liquid
 for product in collection.products
@@ -18,7 +19,7 @@ for product in collection.products
 Add Variant Option Indexing:
 
 Directly after the line above, insert the following code:
-
+```liquid
 {%- liquid
    assign option_chosen = "Color" 
    assign option_index = ''
@@ -29,10 +30,11 @@ Directly after the line above, insert the following code:
        endif
    endfor
 -%}
+```
 Replace Product Card Rendering Logic:
 
 Locate the following block of code in the same file:
-
+```liquid
 <div class="m-product-item m:w-6/12 md:m:w-4/12">
   {% liquid
     case settings.pcard_layout
@@ -49,8 +51,9 @@ Locate the following block of code in the same file:
     endcase
   %}
 </div>
+```
 Replace it with the following code to handle variant-specific display logic:
-
+```liquid
 {%- if option_index == '' -%}
 <div class="m-product-item m:w-6/12 md:m:w-4/12">
   {% liquid
@@ -108,5 +111,5 @@ Replace it with the following code to handle variant-specific display logic:
   {% endunless %}
 {% endfor %}
 {%- endif -%}
-
-This documentation provides a clear and structured explanation for implementing the separate variant display set up in the Minimog - OS 2.0 version 4.0.0 Shopify store theme. If any further details or clarifications are needed, feel free to reach out!
+```
+This documentation provides a clear and structured explanation for implementing the separate variant display set up in the **Minimog - OS 2.0 version 4.0.0** Shopify store theme. If any further details or clarifications are needed, feel free to reach out!
