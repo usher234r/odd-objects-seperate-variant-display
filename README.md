@@ -12,9 +12,9 @@ Locate the Code:
 
 Open the main-collection-product-grid.liquid file.
 Find the line that contains:
-liquid
-Copy code
+```liquid
 for product in collection.products
+```
 Add Variant Option Indexing:
 
 Directly after the line above, insert the following code:
