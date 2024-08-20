@@ -1,1 +1,1 @@
-# odd-objects-seperate-variant-display
+# seperate-variant-display
